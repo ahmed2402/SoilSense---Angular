@@ -1,0 +1,40 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    
+    <style>
+        
+    </style>
+</head>
+
+<body> -->
+    <div class="d-flex">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="text-center ps-3">
+                    <i class="fas fa-seedling text-success me-2"></i><span> Soil Test </span>
+                </span>
+                <button class="btn btn-sm btn-light" id="toggleBtn"><i class="fas fa-bars"></i></button>
+            </div>
+            <ul>
+                <li><i class="fas fa-user-plus"></i> <span>New Users</span></li>
+                <li><i class="fas fa-map-marked-alt"></i> <span>Sites</span></li>
+                <li><i class="fas fa-vial"></i> <span>Test</span></li>
+                <li><i class="fas fa-ruler-combined"></i> <span>Measurements</span></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <span id="username">Logged in as: {{masterSrv.loggedUserData?.userName}}</span>
+                <button class="btn btn-danger w-75">
+                    <i class="fas fa-sign-out-alt"></i> <b>Logout </b> </button>
+            </div>
+        </div>
+         <div class="main-content" id="mainContent">
+            <router-outlet></router-outlet>
+            </div>
+        </div>
