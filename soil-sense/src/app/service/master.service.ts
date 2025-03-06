@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { literal } from '@angular/compiler';
 import { inject, Injectable } from '@angular/core';
 import { ApiResponse, User } from '../models/model';
-import { ToObservableOptions } from '@angular/core/rxjs-interop';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,8 +25,6 @@ export class MasterService {
   }
 
   addUser(obj:User) : Observable<ApiResponse> {
-    return this.http.post(`${this.apiUrl}AddNewUser`,obj) //using template literal
+    return this.http.post<ApiResponse>(`${this.apiUrl}AddNewUser`,obj) //using template literal
   }
-
-  
 }
