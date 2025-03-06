@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MasterService } from '../../service/master.service';
 
 @Component({
@@ -11,5 +11,11 @@ import { MasterService } from '../../service/master.service';
 export class LayoutComponent {
    
   masterSrv = inject(MasterService);
+  router = inject(Router)
+
+  onLogOff(){
+    localStorage.removeItem("soilUser")
+    this.router.navigateByUrl("/login")
+  }
 
 }

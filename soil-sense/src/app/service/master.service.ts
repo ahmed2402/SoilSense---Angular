@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+import { literal } from '@angular/compiler';
 import { inject, Injectable } from '@angular/core';
+import { ApiResponse, User } from '../models/model';
+import { ToObservableOptions } from '@angular/core/rxjs-interop';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +12,7 @@ export class MasterService {
 
   http = inject(HttpClient);
   loggedUserData: any;
+  apiUrl = "https://projectapi.gerasim.in/api/SoilTest/";
   
   constructor() { 
     const loggedData = localStorage.getItem("soilUser");
@@ -17,7 +22,11 @@ export class MasterService {
 }
 
   userLogin(obj:any){
-    return this.http.post("https://projectapi.gerasim.in/api/SoilTest/login",obj)
+    return this.http.post(this.apiUrl+"login",obj) //using string concatenation
+  }
+
+  addUser(obj:User) : Observable<ApiResponse> {
+    return this.http.post(`${this.apiUrl}AddNewUser`,obj) //using template literal
   }
 
   
