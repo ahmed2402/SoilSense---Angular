@@ -9,6 +9,10 @@
             </button>
             <div class="list-group" id="testList">
                 <!-- Dynamically added test items -->
+                 @for (item of testList; track $index) {
+                    <a class="list-group-item list-group-item-action active" data-id="1738477545287">{{item.testName}}</a>
+                 }
+                 
             </div>
         </div>
         <div class="col-md-10 p-4 sideContent">
@@ -20,13 +24,13 @@
                         <div class="col-4">
                             <div class="mb-1">
                                 <label for="testName" class="form-label">Test Name</label>
-                                <input type="text" class="form-control" id="testName" required>
+                                <input type="text" name="testName" [(ngModel)]="testObj.testName" class="form-control" id="testName" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="mb-1">
                                 <label for="testDate" class="form-label">Test Date</label>
-                                <input type="date" class="form-control" id="testDate" required>
+                                <input type="date" name="testDate" [(ngModel)]="testObj.testDate" class="form-control" id="testDate" required>
                             </div>
                         </div>
                     </div>
@@ -34,7 +38,7 @@
                         <div class="col-4">
                             <div class="mb-1">
                                 <label for="testName" class="form-label"> Site</label>
-                                <select name="" class="form-select">
+                                <select name="siteId" [(ngModel)]="testObj.siteId"  class="form-select">
                            @for (item of siteList$ | async ; track $index) {
                             <option [value]="item.siteId">{{item.siteName}}</option>
                            }
@@ -44,7 +48,7 @@
                         <div class="col-4">
                             <div class="mb-1">
                                 <label for="testName" class="form-label"> Engineer</label>
-                                <select name="" class="form-select">
+                                <select name="engineerId" [(ngModel)]="testObj.engineerId" class="form-select">
                                     @for (item of userList$ | async; track $index) {
                                         <option [value]="item.userId">{{item.userName}}</option>
                                     }
@@ -55,12 +59,18 @@
                         <div class="col-4">
                             <div class="mb-1">
                                 <label for="testName" class="form-label"> Test Type</label>
-                                <select name="" class="form-select">
+                                <select name="testTypeId" [(ngModel)]="testObj.testTypeId" class="form-select">
                                     @for (item of testTypesList$ | async; track $index) {
                                     <option value=""> {{item.testName}} </option>
                                     }
                                     
                                 </select>
+                            </div>
+                        </div>
+                        <div class="row pb-2">
+                            <div class="col-6">
+                                <label for="testName" class="form-label"> Remarks </label>
+                                <textarea placeholder="Remarks" class="form-control" name="remarks" [(ngModel)]="testObj.remarks"></textarea>
                             </div>
                         </div>
                     </div>

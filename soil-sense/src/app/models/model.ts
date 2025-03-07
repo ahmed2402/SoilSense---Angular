@@ -49,14 +49,26 @@ export class User { //in class you need to intilaizie them also
     createdDate: string
   }
 
-  export interface Test {
+  export interface AddTest {
     testId: number
     siteId: number
     engineerId: number
     testTypeId: number
-    testDate: string
+    testDate: Date
     remarks: string
     approvalStatus: string
-    createdDate: string
+    createdDate: Date
     testName: string
   }
+
+  export interface TestList {
+    testDate: string
+    testId: number
+    approvalStatus: string
+    testTypeName: string
+    siteName: string
+    clientName: string
+    engineerName: string
+    testName: string
+  }
+  

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { literal } from '@angular/compiler';
 import { inject, Injectable } from '@angular/core';
-import { ApiResponse, Sites, Test, TestTypes, User, UserList } from '../models/model';
+import { AddTest, ApiResponse, Sites, TestList, TestTypes, User, UserList } from '../models/model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -51,7 +51,10 @@ export class MasterService {
   getAllTestTypes() : Observable<TestTypes[]> {
     return this.http.get<TestTypes[]>(`${this.apiUrl}GetAllTestTypes`) //using template literal
   }
-  createTest(obj:Test) : Observable<ApiResponse> {
+  createTest(obj:AddTest) : Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.apiUrl}CreateTest`,obj) //using template literal
+  }
+  getAllTest() : Observable<TestList[]> {
+    return this.http.get<TestList[]>(`${this.apiUrl}GetAllTests`) //using template literal
   }
 }
