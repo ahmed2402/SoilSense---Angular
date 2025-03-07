@@ -63,7 +63,14 @@ export class UsersComponent implements OnInit {
   onDelete(id: number){
     const isDelete = confirm("Are you sure you want to delete?")
     if(isDelete == true){
-      
+      this.masterSrv.deleteUserById(id).subscribe((res:ApiResponse)=> {
+        if(res.result){
+          alert("User Deleted")
+          this.loadUser();
+        } else {
+          alert(res.message)
+        }
+      })
     }
   }
 

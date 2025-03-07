@@ -35,7 +35,7 @@ export class MasterService {
   updateUser(obj:User) : Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.apiUrl}UpdateUser`,obj) //using template literal
   }
-  deleteUser(obj:User) : Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${this.apiUrl}UpdateUser`,obj) //using template literal
+  deleteUserById(id: number) : Observable<ApiResponse> {
+    return this.http.delete<ApiResponse>(`${this.apiUrl}DeleteUserByUserId?userId=${id}`) //using template literal
   }
 }
