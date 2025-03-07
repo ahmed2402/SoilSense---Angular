@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MasterService } from '../../service/master.service';
-import { ApiResponse } from '../../models/model';
+import { ApiResponse, Sites } from '../../models/model';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
@@ -14,7 +14,7 @@ import { AsyncPipe } from '@angular/common';
 export class SitesComponent {
   isFormVisible:boolean = false ; //using simple variables
   masterSrv = inject(MasterService)
-  siteList$ : Observable<any[]> = new Observable<any[]>; // using observable method (u can add interface of list instead of any  )
+  siteList$ : Observable<Sites[]> = new Observable<Sites[]>; // using observable method (u can add interface of list instead of any  )
 
   constructor(){
     this.siteList$ = this.masterSrv.getSites(); // calling site list in constructor nstead on ng oninit

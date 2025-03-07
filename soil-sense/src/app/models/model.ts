@@ -41,3 +41,22 @@ export class User { //in class you need to intilaizie them also
     weatherConditions: string
     createdDate: string
   }
+
+  export interface TestTypes {
+    testTypeId: number
+    testName: string
+    referenceStandard: string
+    createdDate: string
+  }
+
+  export interface Test {
+    testId: number
+    siteId: number
+    engineerId: number
+    testTypeId: number
+    testDate: string
+    remarks: string
+    approvalStatus: string
+    createdDate: string
+    testName: string
+  }

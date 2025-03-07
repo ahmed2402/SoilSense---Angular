@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-2 testsidebar">
             <h4>Tests</h4>
-            <button class="btn btn-success w-100 mb-1" onclick="openTestForm()">
+            <button class="btn btn-success w-100 mb-1" (click)="showHideTest()">
                 <i class="fas fa-plus"></i> Add New Test
             </button>
             <div class="list-group" id="testList">
@@ -12,7 +12,8 @@
             </div>
         </div>
         <div class="col-md-10 p-4 sideContent">
-            <div class="form-container" id="testFormContainer">
+            @if (isNewTest == true) {
+                <div class="form-container" id="testFormContainer">
                 <h4>Create / Edit Test</h4>
                 <form id="testForm">
                     <div class="row">
@@ -34,7 +35,9 @@
                             <div class="mb-1">
                                 <label for="testName" class="form-label"> Site</label>
                                 <select name="" class="form-select">
-                                    <option value="">Select Site</option>
+                           @for (item of siteList$ | async ; track $index) {
+                            <option [value]="item.siteId">{{item.siteName}}</option>
+                           }
                                 </select>
                             </div>
                         </div>
@@ -42,7 +45,10 @@
                             <div class="mb-1">
                                 <label for="testName" class="form-label"> Engineer</label>
                                 <select name="" class="form-select">
-                                    <option value="">Select Engineer</option>
+                                    @for (item of userList$ | async; track $index) {
+                                        <option [value]="item.userId">{{item.userName}}</option>
+                                    }
+                                   
                                 </select>
                             </div>
                         </div>
@@ -50,7 +56,10 @@
                             <div class="mb-1">
                                 <label for="testName" class="form-label"> Test Type</label>
                                 <select name="" class="form-select">
-                                    <option value="">Select Test Type</option>
+                                    @for (item of testTypesList$ | async; track $index) {
+                                    <option value=""> {{item.testName}} </option>
+                                    }
+                                    
                                 </select>
                             </div>
                         </div>
@@ -58,9 +67,10 @@
                    
                     
                    
-                    <button type="submit" class="btn btn-primary">Save Test</button>
+                    <button type="submit" (click)="onSaveTest()" class="btn btn-primary">Save Test</button>
                 </form>
             </div>
+            }
             <div class="form-container mt-4" id="measurementFormContainer">
                 <h4>Measurements for Selected Test</h4>
                 <form id="siteForm">
