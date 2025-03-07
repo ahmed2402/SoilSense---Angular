@@ -13,7 +13,7 @@ import { MasterService } from '../../service/master.service';
 export class UsersComponent implements OnInit {
 
   userObj : User = new User();
-  isFormVisible = signal<boolean>(false);
+  isFormVisible = signal<boolean>(false); //using signals
   masterSrv = inject(MasterService)
   userList : UserList [] = [];
 

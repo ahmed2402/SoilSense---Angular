@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-.sidebar {
+       .sidebar {
             width: 250px;
             height: 100vh;
             background: #343a40;
@@ -67,7 +66,9 @@
             display: block;
             margin-bottom: 10px;
         }
-
+        .form-label {
+    margin-bottom: 0rem !important;
+}
         .sidebar.collapsed .sidebar-footer span {
             display: none;
         }
@@ -75,20 +76,20 @@
         .main-content {
             flex-grow: 1;
             padding: 10px;
+            padding-bottom: 0px;
+            padding-top: 0px;
             background: #f8f9fa;
             min-height: 100vh;
         }
-
         .btn-icon {
             display: flex;
             align-items: center;
             gap: 5px;
         }
-
-        /* .table tbody tr:hover {
+        .table tbody tr:hover {
             background-color: #f1f1f1;
             cursor: pointer;
-        } */
+        }
         .floating-button {
             position: fixed;
             bottom: 20px;
@@ -103,45 +104,35 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease;
         }
-
         .floating-button:hover {
             background-color: #0056b3;
         }
 
-        /* Buttons */
-        .btn-primary {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            border: none;
-            padding: 5px 9px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+        .testsidebar {
+            height: max-content;
+            background: #919aa2;
+            margin-top: 22px;
+            color: white;
+            padding: 10px;
         }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #0056b3, #003f7f);
-            transform: scale(1.05);
+        .testsidebar .list-group-item {
+            background: transparent;
+            color: white;
+            cursor: pointer;
         }
-
-        .btn-warning {
-            background: linear-gradient(135deg, #f1c40f, #f39c12);
-            border: none;
-            padding: 5px 9px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+        .testsidebar .list-group-item.active {
+            background: #007bff;
         }
-
-        .btn-warning:hover {
-            background: linear-gradient(135deg, #f39c12, #f1c40f);
-            transform: scale(1.05);
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-
         label {
-            font-weight: bold;
-            color: #003f7f;
-        }
-
+    font-weight: 600;
+    color: #003f7f;
+}
         .heading {
             color: #003f7f;
             border: none;
@@ -152,28 +143,15 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
-        .heading:hover {
-            color: #007bff;
-            transform: scale(1.05);
+        .form-control   {
+            border-color: #003f7f !important;
+        }
+        .form-select   {
+            border-color: #003f7f !important;
+        }
+        .sideContent {
+            height: 100vh;
+            overflow-x: auto;
         }
 
-        .sidebar.collapsed .sidebar-header span {
-            display: none;
-        }
-
-        .sidebar.collapsed .sidebar-footer b {
-            display: none;
-        }
-
-        form i {
-            color: #003f7f;
-        }
-
-        .sidebar ul li:hover {
-            background-color: #495057;
-            cursor: pointer;
-        }
-
-        tr th i {
-            color: #003f7f;
-        }
+ 

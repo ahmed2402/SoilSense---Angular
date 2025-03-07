@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { literal } from '@angular/compiler';
 import { inject, Injectable } from '@angular/core';
-import { ApiResponse, User, UserList } from '../models/model';
+import { ApiResponse, Sites, User, UserList } from '../models/model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -37,5 +37,14 @@ export class MasterService {
   }
   deleteUserById(id: number) : Observable<ApiResponse> {
     return this.http.delete<ApiResponse>(`${this.apiUrl}DeleteUserByUserId?userId=${id}`) //using template literal
+  }
+
+  //Sites Page APIs
+  createNewSite(obj:Sites) : Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.apiUrl}CreateNewSites`,obj) //using template literal
+  }
+
+  getSites() : Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}GetSites`) //using template literal
   }
 }

@@ -32,3 +32,12 @@ export class User { //in class you need to intilaizie them also
     refreshToken: string
     refreshTokenExpiryTime: string
   }
+
+  export interface Sites {
+    siteId: number
+    siteName: string
+    location: string
+    clientName: string
+    weatherConditions: string
+    createdDate: string
+  }
