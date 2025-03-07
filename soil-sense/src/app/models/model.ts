@@ -1,4 +1,4 @@
-export class User {
+export class User { //in class you need to intilaizie them also
     userId: number ;
     userName: string;
     emailId: string;
@@ -13,9 +13,22 @@ export class User {
         this.userName = "";
     }
   }
+ 
+  export interface ApiResponse {  //in interface you don't need to intialize them
+        message: string,
+        result: boolean,
+        data: any
+  }
 
-  export interface ApiResponse {
-        Message: string,
-        Result: boolean,
-        Data: string
+  export interface UserList  {
+    userId: number
+    userName: string
+    emailId: string
+    fullName: string
+    role: string
+    createdDate: string
+    password: string
+    projectName: string
+    refreshToken: string
+    refreshTokenExpiryTime: string
   }
