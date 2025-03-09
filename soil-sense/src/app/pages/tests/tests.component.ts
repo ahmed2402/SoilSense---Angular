@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { AddTest, ApiResponse, Sites, TestList, TestTypes, UserList } from '../../models/model';
+import { AddMeasurement, AddTest, ApiResponse, Sites, TestList, TestTypes, UserList } from '../../models/model';
 import { MasterService } from '../../service/master.service';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +30,7 @@ export class TestsComponent implements OnInit {
       "createdDate": new Date(),
       "testName": "aaa"
   }
-  measurementObj : any = {
+  measurementObj : AddMeasurement = {
     "measurementId": 0,
     "testId": 0,
     "excavatedHoleVolume": 0,
@@ -40,7 +40,7 @@ export class TestsComponent implements OnInit {
     "sandVolumeUsed": 0,
     "dryDensity": 0,
     "soilClassification": "",
-    "createdDate": new Date()
+    "createdDate": ""
   }
     testList:TestList[] = [];
     measuremntList:any[] = [];

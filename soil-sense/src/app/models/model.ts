@@ -71,4 +71,16 @@ export class User { //in class you need to intilaizie them also
     engineerName: string
     testName: string
   }
+  export interface AddMeasurement {
+    measurementId: number
+    testId: number
+    excavatedHoleVolume: number
+    wetSoilWeight: number
+    moistureContent: number
+    drySoilWeight: number
+    sandVolumeUsed: number
+    dryDensity: number
+    soilClassification: string
+    createdDate: string
+  }
   
