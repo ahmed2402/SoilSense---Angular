@@ -57,4 +57,12 @@ export class MasterService {
   getAllTest() : Observable<TestList[]> {
     return this.http.get<TestList[]>(`${this.apiUrl}GetAllTests`) //using template literal
   }
+  // GetAllMeasurementsByTestId?testid=1
+  createMeasurement(obj:any) : Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.apiUrl}CreateMeasurement`,obj) //using template literal
+  }
+  getMeasurementByTestId(testId: number) : Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.apiUrl}GetAllMeasurementsByTestId?testid=${testId}`) //using template literal
+  }
+
 }

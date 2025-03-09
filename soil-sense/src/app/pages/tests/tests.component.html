@@ -10,7 +10,7 @@
             <div class="list-group" id="testList">
                 <!-- Dynamically added test items -->
                  @for (item of testList; track $index) {
-                    <a class="list-group-item list-group-item-action active" data-id="1738477545287">{{item.testName}}</a>
+                    <a (click)="setActiveTest(item.testId)" [ngClass]="activeTest == item.testId ? 'active' : '' " class="list-group-item list-group-item-action " data-id="1738477545287">{{item.testName}}</a>
                  }
                  
             </div>
@@ -89,7 +89,7 @@
                             <label class="form-label">Excavated Hole Volume (m³):</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-cube"></i></span>
-                                <input type="number" class="form-control" id="excavatedHoleVolume" value="0.01"
+                                <input type="number" [(ngModel)]="measurementObj" name="excavatedHoleVolume" class="form-control" id="excavatedHoleVolume" value="0.01"
                                     placeholder="Enter volume">
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                             <label class="form-label">Wet Soil Weight (kg):</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-weight"></i></span>
-                                <input type="number" class="form-control" id="wetSoilWeight" value="0.01"
+                                <input type="number" [(ngModel)]="measurementObj" name="excavatedHoleVolume" class="form-control" id="wetSoilWeight" value="0.01"
                                     placeholder="Enter weight">
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                             <label class="form-label">Moisture Content (%):</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-tint"></i></span>
-                                <input type="number" class="form-control" id="moistureContent" value="100"
+                                <input type="number" [(ngModel)]="measurementObj" name="excavatedHoleVolume" class="form-control" id="moistureContent" value="100"
                                     placeholder="Enter content percentage">
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                             <label class="form-label">Dry Soil Weight (kg):</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-weight-hanging"></i></span>
-                                <input type="number" class="form-control" id="drySoilWeight" value="0.01"
+                                <input type="number" [(ngModel)]="measurementObj.excavatedHoleVolume" name="excavatedHoleVolume" class="form-control" id="drySoilWeight" value="0.01"
                                     placeholder="Enter weight">
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                             <label class="form-label">Sand Volume Used (m³):</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-cubes"></i></span>
-                                <input type="number" class="form-control" id="sandVolumeUsed" value="0"
+                                <input type="number" [(ngModel)]="measurementObj.sandVolumeUsed" name="excavatedHoleVolume" class="form-control" id="sandVolumeUsed" value="0"
                                     placeholder="Enter volume">
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                             <label class="form-label">Dry Density (kg/m³):</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-weight-hanging"></i></span>
-                                <input type="number" class="form-control" id="dryDensity" value="0.01"
+                                <input type="number" [(ngModel)]="measurementObj.dryDensity" name="excavatedHoleVolume" class="form-control" id="dryDensity" value="0.01"
                                     placeholder="Enter density">
                             </div>
                         </div>
@@ -142,11 +142,11 @@
                     <div class="row mb-1">
                         <div class="col-md-6">
                             <label class="form-label">Soil Classification:</label>
-                            <input type="text" class="form-control" id="soilClassification" value="string"
+                            <input type="text" [(ngModel)]="measurementObj.soilClassification" name="excavatedHoleVolume" class="form-control" id="soilClassification" value="string"
                                 placeholder="Enter classification">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-icon ">
+                    <button type="submit" (click)="addNewMeasurement()" class="btn btn-primary btn-icon ">
                         <span><i class="fas fa-plus"></i> Add </span>
                     </button>
                     <button type="submit" class="btn btn-warning  btn-icon ">
@@ -155,9 +155,35 @@
                 </form>
                 <div class="mt-3">
                     <h5>Measurements List</h5>
-                    <ul class="list-group" id="measurementList">
-                        <!-- Dynamically added measurement items -->
-                    </ul>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Sr No</th>
+                            <th>Hole Volume</th>
+                            <th>Wet Soil Weight</th>
+                            <th>Moisture Content</th>
+                            <th>Dry Soil Weight</th>
+                            <th>Sand Volume Used</th>
+                            <th>Dry Density</th>
+                            <th>Soil Classification</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of measuremntList; track $index) {
+                                <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ item.excavatedHoleVolume }}</td>
+                                <td>{{ item.wetSoilWeight }}</td>
+                                <td>{{ item.moistureContent }}</td>
+                                <td>{{ item.drySoilWeight }}</td>
+                                <td>{{ item.sandVolumeUsed }}</td>
+                                <td>{{ item.dryDensity }}</td>
+                                <td>{{ item.soilClassification }}</td>
+                            </tr>
+                              }
+                              
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>
